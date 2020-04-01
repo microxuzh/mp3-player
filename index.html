@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>悦听</title>
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- 播放器主体区域 -->
+			<div id="player" class="player_wrap">
+				<div class="search_bar">
+
+					<img src="images/player_title.png">
+					<input type="text" v-model="query" @keyup.enter="searchMusic()" />
+				</div>
+				<div class="center_con">
+					<div class="song_wrapper">
+						<ul class="song_list">
+							<li v-for="item in musicList">
+								<a href="javascript:;" @click="playMusic(item.id)"></a>
+								<b>{{item.name}}</b>
+
+							</li>
+						</ul>
+						<img src="images/line.png" alt class="switch_btn">
+					</div>
+				
+					
+					 <div class="player_con" :class="{playing:isPlaying}">
+						<img src="images/player_bar.png" class="play_bar">
+						<img src="images/disc.png" class="disc autoRotate">
+						<img :src="musicConver==''?'./images/cover.png':musicConver" class="cover autoRotate">
+					</div>
+					<div class="comment_wrapper">
+						<h5 class="title">热门留言</h5>
+						<div class="comment_list">
+							<dl v-for="item in hotComments">
+								<dt>
+									<img :src="item.user.avatarUrl" alt="" />
+									<span class="name">{{item.user.nickname}}</span>
+								</dt>
+								<!-- <dd class="name">{{item.user.nickname}}</dd> -->
+								<dd class="detail">
+									{{item.content}}
+								</dd>
+							</dl>
+						</div>
+						<img src="images/line.png" class="right_line">
+					</div>
+				</div>
+				<div class="audio_con">
+					<audio  ref='audio' @play="play" @pause="pause"  :src="musicUrl" controls="controls" autoplay="autoplay" loop="loop" class="myaudio">
+						当前浏览器不支持audio
+					</audio>
+				</div>
+
+			</div>
+		</div>
+		<script src="js/axios.min.js" type="text/javascript"></script>
+		<script src="js/vue.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+	</body>
+</html>

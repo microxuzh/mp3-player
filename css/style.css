@@ -1,0 +1,276 @@
+body,
+ul,
+dl,
+dd {
+	margin: 0px;
+	padding: 0px;
+}
+
+.wrap {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/bg.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+
+.player_wrap {
+	width: 800px;
+	height: 544px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -272px;
+	 /* background-color: #f9f9f9; */
+	/* left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: aliceblue;
+	margin: auto;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px; */
+}
+
+.search_bar {
+	height: 60px;
+	background-color: #1eacda;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	z-index: 11;
+}
+
+.search_bar img {
+	margin-left: 23px;
+}
+
+.search_bar input {
+	margin-right: 23px;
+	width: 296px;
+	height: 34px;
+	border-radius: 17px;
+	border: 0px;
+	outline: none;
+	text-indent: 15px;
+	background: url(../images/zoom.png) no-repeat 265px rgba(255, 255, 255, 0.45);
+	
+}
+
+.center_con {
+	height: 435px;
+	position: relative;
+	display: flex;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.audio_con {
+	height: 50px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.song_wrapper {
+	/* border: 1px solid red; */
+	width: 200px;
+	height: 435px;
+	box-sizing: border-box;
+	padding: 10px;
+	list-style: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+.song_list {
+ width: 100%;
+ overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.song_list a {
+	display: block;
+	width: 17px;
+	height: 17px;
+	background-image: url(../images/play.png);
+	background-size: 100%;
+	box-sizing: border-box;
+}
+
+.song_list li {
+	font-size: 13px;
+	display: flex;
+	flex-wrap: wrap;
+	height: 35px;
+	align-items: center;
+	padding-left: 10px;
+}
+
+.song_list li b {
+	margin-left: 8px;
+  font-weight: normal;
+  width: 122px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.switch_btn {
+	position: absolute;
+	right:0;
+	top: 0;
+	cursor: pointer;
+}
+
+.right_line {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.player_con {
+	/* border: 1px solid gold; */
+	width: 400px;
+	height: 435px;
+	position: absolute;
+	left: 200px;
+	top: 0px;
+}
+
+.cover{
+	position: absolute;
+	left: 125px;
+	top: 112px;
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	z-index: 8;
+	
+}
+/* 旋转的动画 */
+@keyframes Rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+/* 旋转的类名 */
+.autoRotate {
+  animation-name: Rotate;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+}
+
+/* 是否正在播放 */
+.player_con.playing .disc,
+.player_con.playing .cover {
+  animation-play-state: running;
+}
+
+.play_bar {
+	position: absolute;
+	left: 200px;
+	top: -10px;
+	z-index: 10;
+	transform: rotate(-25deg);
+	transform-origin: 12px 12px;
+	transition: 1s;
+}
+
+/* 播放杆 转回去 */
+.player_con.playing .play_bar {
+  transform: rotate(0);
+}
+
+.disc {
+	position: absolute;
+	left: 73px;
+	top: 60px;
+}
+
+.comment_wrapper{
+	width: 200px;
+	height: 435px;
+	list-style: none;
+	position: absolute;
+	left: 600px;
+	top: 0px;
+	/* padding: 25px 10px;
+	/* border: 1px solid blue; */
+}
+
+.comment_wrapper h5 {
+	margin-left: 10px;
+	z-index: 10;
+}
+
+.comment_list {
+	overflow: auto;
+	height: 410px;
+	text-indent: 8px;
+}
+
+
+
+.comment_wrapper dd {
+	font-size: 12px;
+	margin-bottom: 10px;
+	/* text-indent: 10px; */
+	margin-left: 8px;
+}
+
+.comment_list dt {
+	box-sizing: border-box;
+	
+}
+
+.comment_wrapper .name {
+  /* font-weight: bold; */
+  color: #333;
+  padding-top: 6px;
+  font-size: 12px;
+  margin-right: 20px;
+  float: left;
+}
+
+.comment_wrapper dt {
+  /* position: absolute; */
+  left: 4px;
+  top: 10px;
+}
+
+.comment_wrapper dt img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  float:left;
+  margin-left: 10px;
+}
+
+.comment_wrapper .detail {
+  color: #666;
+  line-height: 20px;
+  padding-top: 35px;
+}
+
+.myaudio {
+	width: 800px;
+	height: 40px;
+	/* margin-top: 1px; */
+	outline: none;
+	background-color: #f1f3f4;
+}
